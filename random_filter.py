@@ -29,8 +29,8 @@ if __name__ == '__main__':
 
     # カメラ映像取得
     cap = cv2.VideoCapture(DEVICE_ID)
-    cap.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH,640) 
-    cap.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT,480) 
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH,640) 
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT,480) 
     end_flag, c_frame = cap.read()
 
     # ウィンドウの準備
@@ -41,9 +41,9 @@ if __name__ == '__main__':
 
     # 変換処理ループ
     while end_flag == True:
-	#dest_frame = filter_popart(c_frame)
-	#dest_frame = filter_rgb_shuffle(c_frame)
-	dest_frame = filter_rgb_shuffle(filter_popart(c_frame))
+        #dest_frame = filter_popart(c_frame)
+        #dest_frame = filter_rgb_shuffle(c_frame)
+        dest_frame = filter_rgb_shuffle(filter_popart(c_frame))
         # フレーム表示
         cv2.imshow(ORG_WINDOW_NAME, dest_frame)
 
